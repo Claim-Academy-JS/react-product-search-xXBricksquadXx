@@ -3,9 +3,19 @@ import { useEffect, useState } from "react";
 import Row from "./Row";
 
 function renderRows(products) {
-  return products.map(({ name, price }, index) => (
-    <Row name={name} price={price} key={index} />
-  ));
+  return products.map(({ name, price, category }, index, currArr) =>
+    // Is the category of the previous item in the array the same as the current item's category?
+    currArr[index - 1]?.category === currArr[index].category ? (
+      // If category is same, JUST render the product.
+      <Row name={name} price={price} key={index} />
+    ) : (
+      // If it's a new category, render 2 rows...
+      <>
+        <Row category={category} key={index} />
+        <Row name={name} price={price} key={index} />
+      </>
+    )
+  );
 }
 
 const TBody = () => {
@@ -31,6 +41,7 @@ const TBody = () => {
     []
   );
 
+  // Trim duplicate categories from the catalog
   return <tbody>{renderRows(products)}</tbody>;
 };
 
