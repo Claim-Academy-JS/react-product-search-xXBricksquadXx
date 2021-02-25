@@ -12,7 +12,7 @@ function renderRows(products) {
     ) : (
       // If it's a new category, render 2 rows...
       <>
-        <Row category={category} key={index} />
+        <Row category={category} key={"cat" + index} />
         <Row name={name} price={price} stocked={stocked} key={index} />
       </>
     )

@@ -16,14 +16,14 @@ const ProductTable = () => {
       const productData = await api.index();
       setProducts(() => productData);
     })();
-  });
+  }, []);
 
   return (
-    <table className="w-1/4">
+    <table>
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Price</th>
+          <th className="text-left">Name</th>
+          <th className="text-left">Price</th>
         </tr>
       </thead>
       <TBody products={products} />
