@@ -1,12 +1,18 @@
+import { useState } from "react";
 import Table from "./ProductTable";
 import Search from "./SearchBar";
 
 const FilterableProductTable = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [inStockOnly, setInStockOnly] = useState(false);
+
+  function filterBySearch() {}
+
   function handleKeyUp({ target: { value } }) {
-    console.log(value);
+    setSearchTerm(() => value);
   }
   function handleChange({ target: { checked } }) {
-    console.log(checked);
+    setInStockOnly((prev) => !prev);
   }
 
   return (
