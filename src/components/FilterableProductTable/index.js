@@ -6,12 +6,11 @@ const FilterableProductTable = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [inStockOnly, setInStockOnly] = useState(false);
 
-  function filterBySearch() {}
-
   function handleKeyUp({ target: { value } }) {
     setSearchTerm(() => value);
   }
-  function handleChange({ target: { checked } }) {
+
+  function handleChange() {
     setInStockOnly((prev) => !prev);
   }
 

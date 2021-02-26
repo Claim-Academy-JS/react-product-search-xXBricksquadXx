@@ -9,7 +9,7 @@ const SearchBar = ({ searchHandler, inStockHandler }) => (
       <input
         type="search"
         id="search"
-        placeholder="🔍"
+        placeholder="Search..."
         onKeyUp={searchHandler}
       />
     </div>
